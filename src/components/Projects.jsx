@@ -246,7 +246,7 @@ export default function Projects() {
                           <ArrowRight className="w-4 h-4" />
                         </a>
 
-                        {project.isPrivate ? (
+                        {project.isPrivate && (
                           <button
                             onClick={() => setShowArchModal(true)}
                             className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-accent-violet hover:bg-accent-violet-hover text-white transition-all duration-300 shadow-lg shadow-accent-violet/20 cursor-pointer"
@@ -254,18 +254,6 @@ export default function Projects() {
                             <Info className="w-4 h-4" />
                             <span>{t('projects.btnInfo')}</span>
                           </button>
-                        ) : (
-                          <a
-                            href="#"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              alert("Codebase is private under organizational controls.");
-                            }}
-                            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-gray-400 hover:text-gray-200 transition-all cursor-pointer"
-                          >
-                            <ShieldAlert className="w-4 h-4 text-gray-500" />
-                            <span>{t('projects.btnPrivate')}</span>
-                          </a>
                         )}
                       </div>
                     </div>
