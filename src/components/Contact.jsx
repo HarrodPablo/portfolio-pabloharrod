@@ -58,7 +58,7 @@ export default function Contact() {
     {
       name: 'Email',
       value: 'harrod.pablo@gmail.com',
-      href: 'mailto:harrod.pablo@gmail.com',
+      href: 'https://mail.google.com/mail/?view=cm&fs=1&to=harrod.pablo@gmail.com',
       icon: <Mail className="w-6 h-6 text-accent-blue" />,
       desc: t('contact.emailDesc'),
       hoverBg: 'hover:border-accent-blue/30 hover:bg-accent-blue/5',
