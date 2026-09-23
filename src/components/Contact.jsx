@@ -1,6 +1,8 @@
+import React, { useRef, useState } from 'react';
 import { ArrowUpRight, Mail, MessageSquare, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import emailjs from '@emailjs/browser';
 
 const GithubIcon = (props) => (
   <svg
@@ -28,6 +30,30 @@ const LinkedinIcon = (props) => (
 
 export default function Contact() {
   const { t, language } = useLanguage();
+  const form = useRef();
+  const [status, setStatus] = useState('idle'); // 'idle', 'submitting', 'success', 'error'
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+
+    emailjs.sendForm(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      form.current,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+      .then((result) => {
+          setStatus('success');
+          form.current.reset();
+          setTimeout(() => setStatus('idle'), 5000);
+      }, (error) => {
+          console.error(error.text);
+          setStatus('error');
+          setTimeout(() => setStatus('idle'), 5000);
+      });
+  };
+
   const contactLinks = [
     {
       name: 'Email',
@@ -139,8 +165,8 @@ export default function Contact() {
               {language === 'en' ? 'Send me a message' : 'Envíame un mensaje'}
             </h3>
             
-            {/* Formspree / Web3Forms Structure. The user just needs to add their Action URL */}
-            <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" className="space-y-6 relative z-10">
+            {/* EmailJS Form */}
+            <form ref={form} onSubmit={sendEmail} className="space-y-6 relative z-10">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-gray-400 ml-1">
@@ -186,10 +212,21 @@ export default function Contact() {
 
               <button 
                 type="submit" 
-                className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-accent-blue to-accent-violet hover:opacity-90 transition-opacity duration-300 shadow-lg group cursor-pointer"
+                disabled={status === 'submitting'}
+                className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-accent-blue to-accent-violet hover:opacity-90 transition-opacity duration-300 shadow-lg group cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span>{language === 'en' ? 'Send Message' : 'Enviar Mensaje'}</span>
-                <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                {status === 'submitting' ? (
+                  <span>{language === 'en' ? 'Sending...' : 'Enviando...'}</span>
+                ) : status === 'success' ? (
+                  <span>{language === 'en' ? 'Message Sent!' : '¡Mensaje Enviado!'}</span>
+                ) : status === 'error' ? (
+                  <span>{language === 'en' ? 'Error. Try again.' : 'Error. Intenta de nuevo.'}</span>
+                ) : (
+                  <>
+                    <span>{language === 'en' ? 'Send Message' : 'Enviar Mensaje'}</span>
+                    <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </>
+                )}
               </button>
             </form>
           </div>
