@@ -5,16 +5,16 @@
   --font-heading: system-ui, sans-serif;
   --font-brand: 'Englebert', cursive;
 
-  --color-dark-bg: #030712;
-  --color-dark-card: #080d1a;
-  --color-dark-border: #131d33;
+  --color-dark-bg: #0a0a0a;
+  --color-dark-card: #171717;
+  --color-dark-border: #262626;
   
-  --color-accent-blue: #3b82f6;
-  --color-accent-blue-hover: #60a5fa;
-  --color-accent-violet: #8b5cf6;
-  --color-accent-violet-hover: #a78bfa;
-  --color-accent-teal: #14b8a6;
-  --color-accent-teal-hover: #2dd4bf;
+  --color-accent-blue: #dc2626;
+  --color-accent-blue-hover: #ef4444;
+  --color-accent-violet: #ea580c;
+  --color-accent-violet-hover: #f97316;
+  --color-accent-teal: #f59e0b;
+  --color-accent-teal-hover: #fbbf24;
   --color-accent-emerald: #10b981;
   --color-accent-emerald-hover: #34d399;
 
@@ -24,11 +24,23 @@
   --animate-shimmer: shimmer 2s linear infinite;
   --animate-spin-slow: spin 20s linear infinite;
   --animate-marquee: marquee 25s linear infinite;
+  --animate-ripple: ripple 6s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
 @keyframes float {
@@ -51,8 +63,8 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #030712;
-  color: #f3f4f6;
+  background-color: #0a0a0a;
+  color: #f5f5f5;
   font-family: var(--font-sans);
 }
 
@@ -62,29 +74,29 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #030712;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #111827;
+  background: #262626;
   border-radius: 4px;
-  border: 2px solid #030712;
+  border: 2px solid #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+  background: #dc2626;
 }
 
 /* Glassmorphism effects */
 .glass-panel {
-  background: rgba(8, 13, 26, 0.65);
+  background: rgba(23, 23, 23, 0.65);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .glass-nav {
-  background: rgba(3, 7, 18, 0.7);
+  background: rgba(10, 10, 10, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
@@ -92,23 +104,23 @@ html {
 
 /* Custom glow utility classes */
 .glow-blue {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.12);
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.12);
 }
 
 .glow-violet {
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.12);
+  box-shadow: 0 0 30px rgba(234, 88, 12, 0.12);
 }
 
 .glow-teal {
-  box-shadow: 0 0 30px rgba(20, 184, 166, 0.12);
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.12);
 }
 
 .glow-text-blue {
-  text-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+  text-shadow: 0 0 15px rgba(220, 38, 38, 0.4);
 }
 
 .glow-text-violet {
-  text-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+  text-shadow: 0 0 15px rgba(234, 88, 12, 0.4);
 }
 
 .glow-text-teal {
@@ -140,4 +152,60 @@ html {
   font-family: var(--font-brand);
 }
 
+/* Avatar Ripple Effect */
+.ripple-container {
+  position: relative;
+  z-index: 1;
+}
 
+.ripple-container::before,
+.ripple-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 25px rgba(220, 38, 38, 0.5);
+  filter: blur(12px);
+  animation: var(--animate-ripple);
+  z-index: -1;
+}
+
+.ripple-container::after {
+  animation-delay: 3s;
+}
+
+/* Toastify Glassmorphism Customization */
+:root {
+  --toastify-color-dark: rgba(23, 23, 23, 0.85);
+  --toastify-color-success: var(--color-accent-blue);
+  --toastify-color-error: #ef4444;
+  --toastify-text-color-dark: #f5f5f5;
+  --toastify-font-family: var(--font-sans);
+}
+
+.glass-toast {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  background: rgba(23, 23, 23, 0.85) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Quick Light Mode Hack */
+html.light-mode {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.light-mode img,
+html.light-mode video {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.glass-toast.Toastify__toast--success {
+  border-left: 4px solid var(--color-accent-blue) !important;
+}
+
+.glass-toast.Toastify__toast--error {
+  border-left: 4px solid #ef4444 !important;
+}

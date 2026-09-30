@@ -3,12 +3,12 @@ import { ArrowRight, CheckCircle2, Info, Layers, ShieldAlert, X } from 'lucide-r
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
-import imgWonders from '../assets/capturas/7wonders_scrore.png';
-import imgWedding from '../assets/capturas/captura_boda.png';
-import imgRadiology from '../assets/capturas/captura_diagnostico.png';
-import imgGoodShop from '../assets/capturas/captura_goodshop.png';
-import imgIkigai from '../assets/capturas/captura_ikigai.png';
-import imgNewNorth from '../assets/capturas/captura_newnorth.png';
+const imgWonders = 'https://res.cloudinary.com/dcncyxhku/image/upload/f_auto,q_auto,w_1000/v1790788209/7wonders_laqpqd.jpg';
+const imgWedding = 'https://res.cloudinary.com/dcncyxhku/image/upload/f_auto,q_auto,w_1000/v1790788210/boda_uk5fvk.jpg';
+const imgRadiology = 'https://res.cloudinary.com/dcncyxhku/image/upload/f_auto,q_auto,w_1000/v1790788209/diag_afxfui.jpg';
+const imgGoodShop = 'https://res.cloudinary.com/dcncyxhku/image/upload/f_auto,q_auto,w_1000/v1790788209/goodshop_kww3uo.jpg';
+const imgIkigai = 'https://res.cloudinary.com/dcncyxhku/image/upload/f_auto,q_auto,w_1000/v1790788210/iiki_sdhkul.jpg';
+const imgNewNorth = 'https://res.cloudinary.com/dcncyxhku/image/upload/f_auto,q_auto,w_1000/v1790788210/new_hcihmk.jpg';
 
 const GithubIcon = (props) => (
   <svg
@@ -37,9 +37,7 @@ export default function Projects() {
       liveUrl: "https://ikigai-technology.com",
       image: imgIkigai,
       features: [t('projects.ikigai.f1'), t('projects.ikigai.f2'), t('projects.ikigai.f3'), t('projects.ikigai.f4'), t('projects.ikigai.f5')],
-      accent: "from-accent-teal/20 to-emerald-600/10",
-      borderHover: "hover:border-accent-teal/40",
-      glow: "hover:shadow-[0_0_30px_rgba(20,184,166,0.15)]",
+      accent: "from-red-500/20 to-orange-600/10",
       type: "ikigai"
     },
     {
@@ -51,9 +49,7 @@ export default function Projects() {
       liveUrl: "https://www.diagnosticolopez.com/login",
       image: imgRadiology,
       features: [t('projects.radiology.f1'), t('projects.radiology.f2'), t('projects.radiology.f3'), t('projects.radiology.f4'), t('projects.radiology.f5')],
-      accent: "from-accent-violet/20 to-purple-600/10",
-      borderHover: "hover:border-accent-violet/40",
-      glow: "hover:shadow-[0_0_30px_rgba(139,92,246,0.15)]",
+      accent: "from-orange-500/20 to-amber-600/10",
       isPrivate: true,
       type: "radiology"
     },
@@ -66,9 +62,7 @@ export default function Projects() {
       liveUrl: "https://www.newnorth.com.ar",
       image: imgNewNorth,
       features: [t('projects.newnorth.f1'), t('projects.newnorth.f2'), t('projects.newnorth.f3'), t('projects.newnorth.f4'), t('projects.newnorth.f5')],
-      accent: "from-accent-blue/20 to-blue-600/10",
-      borderHover: "hover:border-accent-blue/40",
-      glow: "hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]",
+      accent: "from-amber-500/20 to-red-600/10",
       isPrivate: false
     },
     {
@@ -80,9 +74,7 @@ export default function Projects() {
       liveUrl: "https://julieta-y-julio-invitacion-boda.vercel.app/#inicio",
       image: imgWedding,
       features: [t('projects.wedding.f1'), t('projects.wedding.f2'), t('projects.wedding.f3'), t('projects.wedding.f4'), t('projects.wedding.f5')],
-      accent: "from-amber-500/20 to-orange-600/10",
-      borderHover: "hover:border-amber-500/40",
-      glow: "hover:shadow-[0_0_30px_rgba(245,158,11,0.15)]",
+      accent: "from-red-600/20 to-rose-700/10",
       isPrivate: false
     },
     {
@@ -94,9 +86,7 @@ export default function Projects() {
       liveUrl: "https://goodshop-premium.vercel.app",
       image: imgGoodShop,
       features: [t('projects.goodshop.f1'), t('projects.goodshop.f2'), t('projects.goodshop.f3'), t('projects.goodshop.f4'), t('projects.goodshop.f5')],
-      accent: "from-zinc-500/20 to-gray-600/10",
-      borderHover: "hover:border-zinc-500/40",
-      glow: "hover:shadow-[0_0_30px_rgba(113,113,122,0.15)]",
+      accent: "from-orange-600/20 to-red-700/10",
       isPrivate: false
     },
     {
@@ -108,9 +98,7 @@ export default function Projects() {
       liveUrl: "https://drive.google.com/drive/folders/1PRYu9EbtG7Zv65NpDbXkQZqcMJ1bXr9U?usp=drive_link",
       image: imgWonders,
       features: [t('projects.wonders.f1'), t('projects.wonders.f2'), t('projects.wonders.f3'), t('projects.wonders.f4'), t('projects.wonders.f5')],
-      accent: "from-amber-500/20 to-yellow-600/10",
-      borderHover: "hover:border-amber-500/40",
-      glow: "hover:shadow-[0_0_30px_rgba(245,158,11,0.15)]",
+      accent: "from-amber-600/20 to-orange-700/10",
       isPrivate: false
     }
   ];
@@ -134,7 +122,9 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-16 lg:py-24 relative bg-dark-bg">
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-accent-blue/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-accent-blue/5 rounded-full blur-3xl pointer-events-none"></div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -177,7 +167,7 @@ export default function Projects() {
                 {/* Tab Handle */}
                 <div
                   onClick={() => handleScrollToProject(index)}
-                  className="h-10 w-40 sm:w-48 bg-[#0a0f1c] border-t border-l border-r border-white/10 rounded-t-xl flex items-center px-5 relative z-20 shadow-lg cursor-pointer hover:brightness-125 hover:-translate-y-1 transition-all duration-300 group"
+                  className="h-10 w-40 sm:w-48 bg-[#171717] border-t border-l border-r border-white/10 rounded-t-xl flex items-center px-5 relative z-20 shadow-lg cursor-pointer hover:brightness-125 hover:-translate-y-1 transition-all duration-300 group"
                   style={{
                     clipPath: 'polygon(0 0, 85% 0, 100% 100%, 0% 100%)',
                     marginBottom: '-1px'
@@ -190,7 +180,7 @@ export default function Projects() {
                 </div>
 
                 {/* Folder Body */}
-                <div className="w-full bg-[#0a0f1c] border border-white/10 rounded-b-2xl rounded-tr-2xl shadow-2xl relative z-10 px-5 sm:px-10 pb-6 sm:pb-8 pt-8 sm:pt-14 min-h-[400px]">
+                <div className="w-full bg-[#171717] border border-white/10 rounded-b-2xl rounded-tr-2xl shadow-2xl relative z-10 px-5 sm:px-10 pb-6 sm:pb-8 pt-12 sm:pt-14 min-h-[400px]">
 
                   {/* Glow Background */}
                   <div className={`absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br ${project.accent} blur-[120px] opacity-20 pointer-events-none rounded-full`}></div>
@@ -240,7 +230,7 @@ export default function Projects() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-white/10 hover:bg-white/20 border border-white/10 text-white transition-all duration-300 hover:shadow-lg"
+                          className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-accent-violet hover:bg-accent-violet-hover text-white transition-all duration-300 shadow-lg shadow-accent-violet/20 hover:shadow-accent-violet/40 hover:-translate-y-0.5"
                         >
                           <span>{t('projects.btnVisit')}</span>
                           <ArrowRight className="w-4 h-4" />
@@ -249,7 +239,7 @@ export default function Projects() {
                         {project.isPrivate && (
                           <button
                             onClick={() => setShowArchModal(true)}
-                            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-accent-violet hover:bg-accent-violet-hover text-white transition-all duration-300 shadow-lg shadow-accent-violet/20 cursor-pointer"
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all duration-300 cursor-pointer"
                           >
                             <Info className="w-4 h-4" />
                             <span>{t('projects.btnInfo')}</span>
@@ -259,20 +249,20 @@ export default function Projects() {
                     </div>
 
                     {/* Image Column */}
-                    <div className="flex-1 lg:max-w-[45%] flex flex-col justify-center mt-8 lg:mt-0">
+                    <div className="hidden lg:flex flex-1 lg:max-w-[45%] flex-col justify-center mt-8 lg:mt-0">
                       {/* Wrapper sin overflow-hidden para que las cintas sobresalgan */}
-                      <div className="w-full relative h-[250px] sm:h-[350px] lg:h-full">
+                      <div className="w-full relative h-[250px] sm:h-[350px] lg:h-auto lg:aspect-video">
 
                         {/* Fake tape effects matching reference style */}
                         <div className="absolute top-4 -left-4 w-16 h-5 bg-white/20 backdrop-blur-md rotate-[-25deg] z-30 rounded shadow-sm"></div>
                         <div className="absolute top-4 -right-4 w-16 h-5 bg-white/20 backdrop-blur-md rotate-[25deg] z-30 rounded shadow-sm"></div>
 
                         {/* Contenedor de la imagen (con overflow-hidden para el borde redondeado) */}
-                        <div className="w-full h-full bg-[#050912]/80 rounded-2xl border border-white/10 relative overflow-hidden shadow-2xl group">
+                        <div className="w-full h-full bg-[#0a0a0a]/80 rounded-2xl border border-white/10 relative overflow-hidden shadow-2xl group">
                           <img
                             src={project.image}
                             alt={project.title}
-                            className="w-full h-full object-cover object-top transition-transform duration-700 ease-in-out group-hover:scale-105"
+                            className="w-full h-full object-cover object-left-top transition-transform duration-700 ease-in-out group-hover:scale-105"
                           />
                         </div>
                       </div>
