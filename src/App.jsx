@@ -7,6 +7,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
           </p>
         </div>
       </footer>
+      <Analytics />
     </div>
   );
 }
