@@ -3,6 +3,7 @@ import { ArrowUpRight, Mail, MessageSquare, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
 
 const GithubIcon = (props) => (
   <svg
@@ -45,11 +46,13 @@ export default function Contact() {
     )
       .then((result) => {
           setStatus('success');
+          toast.success(language === 'en' ? 'Message sent successfully!' : '¡Mensaje enviado con éxito!');
           form.current.reset();
           setTimeout(() => setStatus('idle'), 5000);
       }, (error) => {
           console.error(error.text);
           setStatus('error');
+          toast.error(language === 'en' ? 'Error sending message.' : 'Error al enviar el mensaje.');
           setTimeout(() => setStatus('idle'), 5000);
       });
   };

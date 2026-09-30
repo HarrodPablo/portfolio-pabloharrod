@@ -15,7 +15,8 @@
     "lucide-react": "^1.20.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "react-parallax-tilt": "^1.7.342"
+    "react-parallax-tilt": "^1.7.342",
+    "react-toastify": "^11.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -29,6 +30,7 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
     "postcss": "^8.5.15",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4.3.1",
     "vite": "^8.0.12"
   }

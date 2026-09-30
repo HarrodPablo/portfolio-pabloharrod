@@ -1,8 +1,8 @@
-import React from 'react';
-import { ArrowDown, FileText, Code2, Database, Layers, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { FileText } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
+const profileImg = 'https://res.cloudinary.com/dcncyxhku/image/upload/f_auto,q_auto,w_800/v1790788227/pefil_htd8os.jpg';
 import cvES from '../assets/cv/pablo_harrod_developer-ES.pdf';
 import cvEN from '../assets/cv/pablo_harrod_developer_EN.pdf';
 
@@ -26,105 +26,135 @@ export default function Hero() {
   };
 
   return (
-    <section 
-      id="home" 
-      className="relative min-h-screen flex items-center justify-center pt-16 lg:pt-24 overflow-hidden bg-dark-bg"
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center pt-24 lg:pt-32 pb-16 overflow-hidden bg-dark-bg"
     >
-      {/* Premium background grid & lighting effects */}
+      {/* Background grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293708_1px,transparent_1px),linear-gradient(to_bottom,#1f293708_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
-      
+
       {/* Decorative ambient glow blobs */}
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-accent-teal/10 rounded-full blur-3xl animate-pulse-slow"></div>
       <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-accent-blue/10 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-accent-violet/10 rounded-full blur-3xl animate-float-slow"></div>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        
-        {/* Floating tech badge banner */}
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-white/5 mb-8 animate-float shadow-lg hover:border-white/10 transition-colors duration-300">
-          <span className="w-2 h-2 rounded-full bg-accent-teal animate-ping"></span>
-          <span className="text-xs sm:text-sm font-medium text-accent-teal-hover tracking-wide font-brand">
-            {t('hero.badge')}
-          </span>
-        </motion.div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
-        {/* Main Headline */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-heading text-4xl sm:text-6xl lg:text-8xl font-black tracking-tight mb-6 leading-none px-2 sm:px-0">
-          <span className="block text-gray-400 text-2xl sm:text-3xl lg:text-4xl font-normal mb-4 tracking-normal font-brand">
-            {t('hero.greeting')}
-          </span>
-          <span className="bg-gradient-to-r from-white via-gray-100 to-accent-blue bg-clip-text text-transparent drop-shadow-sm">
-            {t('hero.name')}
-          </span>
-        </motion.h1>
+          {/* Left Column: Content */}
+          <div className="text-left flex flex-col items-start">
 
-        {/* Subheadline */}
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="max-w-2xl mx-auto text-sm sm:text-lg lg:text-xl text-gray-400 mb-10 leading-relaxed font-light px-4 sm:px-0">
-          {t('hero.descPart1')}<span className="text-white font-normal border-b border-accent-teal/40">{t('hero.descRobust')}</span>{t('hero.descPart2')}<span className="text-white font-normal border-b border-accent-blue/40">{t('hero.descScalable')}</span>{t('hero.descPart3')}<span className="text-white font-normal border-b border-accent-violet/40">{t('hero.descEfficient')}</span>{t('hero.descPart4')}
-        </motion.p>
-
-        {/* Core Stack Badge Row */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12 max-w-3xl mx-auto px-2 sm:px-0">
-          {coreTech.map((tech) => (
-            <div
-              key={tech.name}
-              style={{ backgroundColor: tech.bg, borderColor: tech.border }}
-              className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border text-xs sm:text-sm font-medium text-gray-200 hover:scale-105 hover:border-white/20 transition-all duration-300 shadow-md cursor-default group"
+            {/* Eyebrow */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-4"
             >
-              {tech.icon}
-              <span>{tech.name}</span>
+              <span className="text-accent-blue font-semibold text-sm tracking-widest uppercase font-sans">
+                {t('hero.greeting')} {t('hero.name')}
+              </span>
+            </motion.div>
+
+            {/* Main Headline (H1) */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-sans text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight flex flex-col"
+            >
+              <span className="text-white">Full-Stack</span>
+              <span className="bg-gradient-to-r from-accent-blue to-accent-violet bg-clip-text text-transparent">
+                Software Engineer
+              </span>
+            </motion.h1>
+
+            {/* Subheadline (Body) */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="max-w-xl text-base sm:text-lg text-gray-400 mb-8 leading-relaxed font-sans"
+            >
+              {t('hero.descPart1')}
+              <span className="text-gray-300 font-medium">{t('hero.descRobust')}</span>
+              {t('hero.descPart2')}
+              <span className="text-gray-300 font-medium">{t('hero.descScalable')}</span>
+              {t('hero.descPart3')}
+              <span className="text-gray-300 font-medium">{t('hero.descEfficient')}</span>
+              {t('hero.descPart4')}
+            </motion.p>
+
+            {/* Core Stack Badges (Replacing Social Media) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-wrap gap-3 mb-10"
+            >
+              {coreTech.map((tech) => (
+                <div
+                  key={tech.name}
+                  style={{ backgroundColor: tech.bg, borderColor: tech.border }}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full border text-xs sm:text-sm font-medium text-gray-200 hover:scale-105 hover:border-white/20 transition-all duration-300 shadow-md cursor-default group"
+                  title={tech.name}
+                >
+                  {tech.icon}
+                  <span className="hidden sm:inline">{tech.name}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+            >
+              {/* Primary: View Projects */}
+              <a
+                href="#projects"
+                onClick={handleScrollToProjects}
+                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 rounded-full text-sm font-bold text-white bg-accent-blue hover:bg-accent-blue-hover transition-all duration-300 transform hover:-translate-y-0.5 shadow-[0_0_20px_rgba(220,38,38,0.4)] uppercase tracking-wide cursor-pointer"
+              >
+                <span>{t('hero.viewProjects')}</span>
+              </a>
+
+              {/* Secondary: Download CV */}
+              <a
+                href={language === 'es' ? cvES : cvEN}
+                download={language === 'es' ? 'Pablo_Harrod_CV_ES.pdf' : 'Pablo_Harrod_CV_EN.pdf'}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-semibold text-gray-300 hover:text-white border border-white/10 hover:border-white/30 bg-white/5 hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-0.5 uppercase tracking-wide cursor-pointer"
+              >
+                <FileText className="w-4 h-4" />
+                <span>{t('hero.downloadCV')}</span>
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Avatar with Rings */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="relative flex justify-center items-center mt-12 lg:mt-0"
+          >
+            {/* Avatar Container with Single Thick Border and Floating Effect */}
+            <div className="absolute w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] rounded-full ripple-container animate-float">
+              <div className="relative w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] rounded-full p-[8px] sm:p-[12px] bg-gradient-to-br from-red-500 to-orange-700 shadow-[0_0_40px_rgba(220,38,38,0.5)]">
+                <div className="w-full h-full rounded-full overflow-hidden bg-gray-800">
+                  <img
+                    src={profileImg}
+                    alt="Pablo Harrod"
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  />
+                </div>
+              </div>
             </div>
-          ))}
-        </motion.div>
+          </motion.div>
 
-        {/* Call to Actions (CTAs) */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4 sm:px-0">
-          <a
-            href="#projects"
-            onClick={handleScrollToProjects}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-accent-blue to-accent-violet hover:from-accent-blue/90 hover:to-accent-violet/90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 group cursor-pointer"
-          >
-            <span>{t('hero.viewProjects')}</span>
-            <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
-          </a>
-          
-          <a
-            href={language === 'es' ? cvES : cvEN}
-            download={language === 'es' ? 'Pablo_Harrod_CV_ES.pdf' : 'Pablo_Harrod_CV_EN.pdf'}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-base font-semibold text-gray-300 hover:text-white glass-panel border border-white/10 hover:border-accent-teal/50 hover:bg-accent-teal/5 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
-          >
-            <FileText className="w-4 h-4 text-accent-teal" />
-            <span>{t('hero.downloadCV')}</span>
-          </a>
-        </motion.div>
-
-      </div>
-
-      {/* Elegant down indicator at the bottom of the section */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-40 hover:opacity-100 transition-opacity duration-300">
-        <a href="#projects" onClick={handleScrollToProjects}>
-          <ArrowDown className="w-6 h-6 text-gray-400" />
-        </a>
+        </div>
       </div>
     </section>
   );

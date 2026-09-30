@@ -5,10 +5,25 @@ import Services from './components/Services';
 import Projects from './components/Projects';
 import About from './components/About';
 import Contact from './components/Contact';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div className="min-h-screen bg-dark-bg text-gray-100 flex flex-col selection:bg-accent-blue/30 selection:text-white">
+      <ToastContainer 
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        toastClassName="glass-toast"
+      />
       {/* Translucent Navbar */}
       <Navbar />
 
