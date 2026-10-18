@@ -76,17 +76,15 @@ export default function Contact() {
       hoverBg: 'hover:border-accent-violet/30 hover:bg-accent-violet/5',
       glow: 'hover:shadow-[0_0_25px_rgba(139,92,246,0.1)]'
     },
-    /* Ocultado temporalmente
     {
       name: 'GitHub',
-      value: 'github.com/pabloharrod',
-      href: 'https://github.com',
+      value: 'github.com/HarrodPablo',
+      href: 'https://github.com/HarrodPablo',
       icon: <GithubIcon className="w-6 h-6 text-emerald-400" />,
       desc: t('contact.githubDesc'),
       hoverBg: 'hover:border-emerald-500/30 hover:bg-emerald-500/5',
       glow: 'hover:shadow-[0_0_25px_rgba(52,211,153,0.1)]'
     }
-    */
   ];
 
   return (
@@ -116,7 +114,7 @@ export default function Contact() {
         </motion.div>
 
         {/* Contact Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
           {contactLinks.map((link, index) => (
             <motion.a
               initial={{ opacity: 0, y: 20 }}

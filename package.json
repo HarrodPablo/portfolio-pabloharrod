@@ -17,7 +17,8 @@
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-parallax-tilt": "^1.7.342",
-    "react-toastify": "^11.1.0"
+    "react-toastify": "^11.1.0",
+    "three": "^0.186.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -4,7 +4,8 @@ import { useLanguage } from '../context/LanguageContext';
 
 const profileImg = 'https://res.cloudinary.com/dcncyxhku/image/upload/f_auto,q_auto,w_800/v1790788227/pefil_htd8os.jpg';
 import cvES from '../assets/cv/pablo_harrod_developer-ES.pdf';
-import cvEN from '../assets/cv/pablo_harrod_developer_EN.pdf';
+import cvEN from '../assets/cv/pablo_harrod_developer-EN.pdf';
+import Lanyard from './Lanyard';
 
 export default function Hero() {
   const { t, language } = useLanguage();
@@ -133,25 +134,34 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Avatar with Rings */}
+          {/* Right Column: 3D Interactive Lanyard */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative flex justify-center items-center mt-12 lg:mt-0"
+            className="relative flex justify-center items-center w-full h-[480px] sm:h-[540px] lg:h-[600px] mt-6 lg:mt-0"
           >
-            {/* Avatar Container with Single Thick Border and Floating Effect */}
-            <div className="absolute w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] rounded-full ripple-container animate-float">
-              <div className="relative w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] rounded-full p-[8px] sm:p-[12px] bg-gradient-to-br from-red-500 to-orange-700 shadow-[0_0_40px_rgba(220,38,38,0.5)]">
-                <div className="w-full h-full rounded-full overflow-hidden bg-gray-800">
-                  <img
-                    src={profileImg}
-                    alt="Pablo Harrod"
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                  />
-                </div>
-              </div>
-            </div>
+            <Lanyard
+              frontImage={profileImg}
+              backImage={profileImg}
+              imageFit="cover"
+              cardColor="#ffffff"
+              orientation="portrait"
+              finish="glossy"
+              cornerRadius={0.3}
+              size={0.48}
+              anchor="center"
+              strapLength={0.55}
+              strapColor="#111111"
+              strapWidth={0.65}
+              metal="silver"
+              gravity={1}
+              damping={0.5}
+              elasticity={0.5}
+              breeze={0.5}
+              interactive
+              intro
+            />
           </motion.div>
 
         </div>
