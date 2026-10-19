@@ -9,6 +9,7 @@ const imgRadiology = 'https://res.cloudinary.com/dcncyxhku/image/upload/f_auto,q
 const imgGoodShop = 'https://res.cloudinary.com/dcncyxhku/image/upload/f_auto,q_auto,w_1000/v1790788209/goodshop_kww3uo.jpg';
 const imgIkigai = 'https://res.cloudinary.com/dcncyxhku/image/upload/f_auto,q_auto,w_1000/v1790788210/iiki_sdhkul.jpg';
 const imgNewNorth = 'https://res.cloudinary.com/dcncyxhku/image/upload/f_auto,q_auto,w_1000/v1790788210/new_hcihmk.jpg';
+const imgFlor = 'https://res.cloudinary.com/dcncyxhku/image/upload/v1792422631/imagen_2026-10-19_121024108_mjisvh.png';
 
 const GithubIcon = (props) => (
   <svg
@@ -91,6 +92,18 @@ export default function Projects() {
     },
     {
       id: 6,
+      title: "Florencia Ramallo",
+      subtitle: t('projects.flor.subtitle'),
+      description: t('projects.flor.desc'),
+      tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      liveUrl: "https://portfolio-flor-ramallo.vercel.app",
+      image: imgFlor,
+      features: [t('projects.flor.f1'), t('projects.flor.f2'), t('projects.flor.f3'), t('projects.flor.f4'), t('projects.flor.f5')],
+      accent: "from-pink-500/20 to-fuchsia-600/10",
+      isPrivate: false
+    },
+    {
+      id: 7,
       title: "7 Wonders Score Calculator",
       subtitle: t('projects.wonders.subtitle'),
       description: t('projects.wonders.desc'),
@@ -108,7 +121,7 @@ export default function Projects() {
 
     if (anchor) {
       // Offset applied via style={top: ...} for position: sticky
-      const stickyOffset = 100 + index * 48;
+      const stickyOffset = 75 + index * 26;
 
       // Calculate absolute position of the anchor in the document
       const absoluteTop = anchor.getBoundingClientRect().top + window.scrollY;
@@ -148,7 +161,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Projects Stack (Sticky Folders) */}
-        <div id="projects-container" className="flex flex-col w-full max-w-5xl mx-auto relative pb-20 pt-10">
+        <div id="projects-container" className="flex flex-col w-full max-w-5xl mx-auto relative pb-20 pt-6">
           {projects.map((project, index) => (
             <React.Fragment key={project.id}>
               {/* Invisible anchor to calculate precise scroll position regardless of sticky state */}
@@ -161,76 +174,78 @@ export default function Projects() {
                 transition={{ duration: 0.5 }}
                 key={project.id}
                 id={`project-card-${index}`}
-                className={`sticky w-full ${index === projects.length - 1 ? 'mb-0' : 'mb-12 sm:mb-24'}`}
-                style={{ top: `calc(100px + ${index * 40}px)` }}
+                className={`sticky w-full ${index === projects.length - 1 ? 'mb-0' : 'mb-12 sm:mb-20'}`}
+                style={{ top: `calc(75px + ${index * 26}px)` }}
               >
                 {/* Tab Handle */}
                 <div
                   onClick={() => handleScrollToProject(index)}
-                  className="h-10 w-40 sm:w-48 bg-[#171717] border-t border-l border-r border-white/10 rounded-t-xl flex items-center px-5 relative z-20 shadow-lg cursor-pointer hover:brightness-125 hover:-translate-y-1 transition-all duration-300 group"
+                  className="h-8 sm:h-9 w-36 sm:w-44 bg-[#171717] border-t border-l border-r border-white/10 rounded-t-xl flex items-center px-4 sm:px-5 relative z-20 shadow-lg cursor-pointer hover:brightness-125 hover:-translate-y-0.5 transition-all duration-300 group"
                   style={{
                     clipPath: 'polygon(0 0, 85% 0, 100% 100%, 0% 100%)',
                     marginBottom: '-1px'
                   }}
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-20 pointer-events-none`}></div>
-                  <span className="relative z-10 text-xs font-bold text-gray-300 tracking-widest font-mono">
+                  <span className="relative z-10 text-[11px] sm:text-xs font-bold text-gray-300 tracking-wider font-mono">
                     PROJECT 0{index + 1}
                   </span>
                 </div>
 
                 {/* Folder Body */}
-                <div className="w-full bg-[#171717] border border-white/10 rounded-b-2xl rounded-tr-2xl shadow-2xl relative z-10 px-5 sm:px-10 pb-6 sm:pb-8 pt-12 sm:pt-14 min-h-[400px]">
+                <div className="w-full bg-[#171717] border border-white/10 rounded-b-2xl rounded-tr-2xl shadow-2xl relative z-10 px-5 sm:px-8 lg:px-10 pb-6 sm:pb-7 pt-6 sm:pt-8 min-h-[380px]">
 
                   {/* Glow Background */}
                   <div className={`absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br ${project.accent} blur-[120px] opacity-20 pointer-events-none rounded-full`}></div>
 
-                  <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 relative z-10 h-full">
+                  <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 relative z-10 h-full">
 
                     {/* Text Details Column */}
-                    <div className="flex-1 flex flex-col">
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${project.accent}`}></span>
-                        <span className="text-[11px] uppercase font-bold tracking-widest text-gray-400">
-                          {project.subtitle}
-                        </span>
-                      </div>
-
-                      <h3 className="font-heading text-3xl sm:text-4xl font-extrabold text-white mb-4">
-                        {project.title}
-                      </h3>
-
-                      <p className="text-gray-300 text-sm sm:text-base mb-6 leading-relaxed font-light">
-                        {project.description}
-                      </p>
-
-                      <ul className="space-y-2 mb-6 text-sm text-gray-400">
-                        {project.features.map((feat) => (
-                          <li key={feat} className="flex items-center gap-3">
-                            <CheckCircle2 className="w-4 h-4 text-accent-teal flex-shrink-0" />
-                            <span>{feat}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="flex flex-wrap gap-2 mb-8">
-                        {project.tech.map((badge) => (
-                          <span
-                            key={badge}
-                            className="text-[10px] font-semibold px-3 py-1.5 rounded-full bg-white/5 text-gray-300 border border-white/10 uppercase tracking-widest"
-                          >
-                            {badge}
+                    <div className="flex-1 flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${project.accent}`}></span>
+                          <span className="text-[11px] uppercase font-bold tracking-widest text-gray-400">
+                            {project.subtitle}
                           </span>
-                        ))}
+                        </div>
+
+                        <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-3">
+                          {project.title}
+                        </h3>
+
+                        <p className="text-gray-300 text-xs sm:text-sm lg:text-[15px] mb-4 leading-relaxed font-light">
+                          {project.description}
+                        </p>
+
+                        <ul className="space-y-1.5 mb-4 text-xs sm:text-sm text-gray-400">
+                          {project.features.map((feat) => (
+                            <li key={feat} className="flex items-center gap-2.5">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-accent-teal flex-shrink-0" />
+                              <span>{feat}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="flex flex-wrap gap-1.5 mb-5">
+                          {project.tech.map((badge) => (
+                            <span
+                              key={badge}
+                              className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-white/5 text-gray-300 border border-white/10 uppercase tracking-wider"
+                            >
+                              {badge}
+                            </span>
+                          ))}
+                        </div>
                       </div>
 
                       {/* Action Buttons */}
-                      <div className="mt-auto flex gap-4 items-center">
+                      <div className="pt-2 flex gap-4 items-center">
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-accent-violet hover:bg-accent-violet-hover text-white transition-all duration-300 shadow-lg shadow-accent-violet/20 hover:shadow-accent-violet/40 hover:-translate-y-0.5"
+                          className="inline-flex items-center justify-center gap-2 px-6 py-2.5 sm:py-3 rounded-xl text-sm font-bold bg-accent-violet hover:bg-accent-violet-hover text-white transition-all duration-300 shadow-lg shadow-accent-violet/20 hover:shadow-accent-violet/40 hover:-translate-y-0.5 cursor-pointer"
                         >
                           <span>{t('projects.btnVisit')}</span>
                           <ArrowRight className="w-4 h-4" />

@@ -74,6 +74,15 @@ export const translations = {
         f4: 'Responsive interface with React Router v7 and TanStack Query',
         f5: 'Backend security layer reinforced with Helmet, CORS, and bcrypt'
       },
+      flor: {
+        subtitle: 'Community Manager Portfolio',
+        desc: 'Modern, editorial, and interactive portfolio designed and developed for a professional Community Manager & Content Strategist. Features print-inspired tactile aesthetics and interactive device mockups.',
+        f1: 'Editorial & magazine layout with custom paper-grain overlay aesthetics',
+        f2: 'Glassmorphic UI components with vibrant accent colors and tactile contrast',
+        f3: 'Interactive 3D-styled iPhone mockup featuring an authentic Instagram feed',
+        f4: 'Smooth viewport reveals and spring hover interactions powered by Framer Motion',
+        f5: 'Hyper-optimized Next.js 14 App Router architecture with TypeScript'
+      },
       wonders: {
         subtitle: 'Board Game Utility App',
         desc: 'Offline-first PWA and native app for tournament math management. Exported to Android using Capacitor for native hardware access.',
@@ -206,6 +215,15 @@ export const translations = {
         f3: 'Integración de autenticación híbrida: JWT local + OAuth 2.0',
         f4: 'Interfaz responsiva con React Router v7, Zustand y TanStack Query',
         f5: 'Capa de seguridad backend con Helmet, CORS y encriptación bcrypt'
+      },
+      flor: {
+        subtitle: 'Portafolio de Community Manager',
+        desc: 'Sitio web moderno, editorial e interactivo diseñado y desarrollado para una Community Manager y Estratega de Contenido profesional. Cuenta con estética inspirada en diseño impreso y mockups de dispositivos interactivos.',
+        f1: 'Diseño editorial estilo revista con texturas táctiles y grano de papel superpuesto',
+        f2: 'Componentes glassmórficos con contrastes táctiles y paleta de acentos vibrantes',
+        f3: 'Mockup interactivo de iPhone en 3D con feed auténtico de Instagram',
+        f4: 'Micro-animaciones fluidas e interacciones elásticas con Framer Motion',
+        f5: 'Arquitectura hiper-optimizada con Next.js 14 App Router y TypeScript'
       },
       wonders: {
         subtitle: 'App de Utilidad para Juegos de Mesa',
