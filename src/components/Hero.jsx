@@ -3,8 +3,8 @@ import { FileText } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const profileImg = 'https://res.cloudinary.com/dcncyxhku/image/upload/f_auto,q_auto,w_800/v1790788227/pefil_htd8os.jpg';
-import cvES from '../assets/cv/pablo_harrod_developer-ES.pdf';
-import cvEN from '../assets/cv/pablo_harrod_developer-EN.pdf';
+import cvES from '../assets/cv/Pablo_Harrod_FullStack_Software_Engineer_CV_ES.pdf';
+import cvEN from '../assets/cv/Pablo_Harrod_FullStack_Software_Engineer_Resume_EN.pdf';
 import Lanyard from './Lanyard';
 
 export default function Hero() {
@@ -125,7 +125,7 @@ export default function Hero() {
               {/* Secondary: Download CV */}
               <a
                 href={language === 'es' ? cvES : cvEN}
-                download={language === 'es' ? 'Pablo_Harrod_CV_ES.pdf' : 'Pablo_Harrod_CV_EN.pdf'}
+                download={language === 'es' ? 'Pablo_Harrod_FullStack_Software_Engineer_CV_ES.pdf' : 'Pablo_Harrod_FullStack_Software_Engineer_Resume_EN.pdf'}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-semibold text-gray-300 hover:text-white border border-white/10 hover:border-white/30 bg-white/5 hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-0.5 uppercase tracking-wide cursor-pointer"
               >
                 <FileText className="w-4 h-4" />
